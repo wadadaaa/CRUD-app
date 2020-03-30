@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
+import {Button, Modal, ModalHeader, ModalBody} from 'reactstrap'
 import AddEditForm from '../Forms/FormAddEdit'
 
 class ModalForm extends Component {
@@ -18,8 +18,8 @@ class ModalForm extends Component {
 
   render() {
       const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>;
-
       const label = this.props.buttonLabel;
+      const name = this.props.item ? this.props.item.name : 'loading ...';
 
       let button = '';
       let title = '';
@@ -30,7 +30,7 @@ class ModalForm extends Component {
                   onClick={this.toggle}
                   style={{float: "right", marginRight:"10px"}}>{label}
                 </Button>;
-        title = 'Edit Item'
+        title = name;
       } else {
         button = <Button
                   color="success"
